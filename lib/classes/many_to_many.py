@@ -73,8 +73,7 @@ class Magazine:
         return [article.title for article in self.articles()]
 
     def contributing_authors(self):
-        authors_with_more_than_two = [author for author in self.contributors() if len(author.articles()) > 2]
-        return authors_with_more_than_two if authors_with_more_than_two else None
+        pass
 
     @classmethod
     def top_publisher(cls):
