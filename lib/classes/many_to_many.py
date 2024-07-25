@@ -73,7 +73,22 @@ class Magazine:
         return [article.title for article in self.articles()]
 
     def contributing_authors(self):
-        pass
+        # Create a dictionary to count articles per author
+        author_article_count = {}
+        
+        # Iterate through the articles of this magazine
+        for article in self.articles():
+            author = article.author
+            # Count the number of articles for each author
+            if author in author_article_count:
+                author_article_count[author] += 1
+            else:
+                author_article_count[author] = 1
+        
+        # Filter authors who have written more than 2 articles
+        contributing_authors = [author for author, count in author_article_count.items() if count > 2]
+        
+        return contributing_authors if contributing_authors else None
 
     @classmethod
     def top_publisher(cls):
